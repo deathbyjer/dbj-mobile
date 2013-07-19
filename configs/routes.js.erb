@@ -1,0 +1,14 @@
+if (!window.Mobile) Mobile = {}
+if (!Mobile.Configs) Mobile.Configs = {}
+
+Mobile.Configs.Routes = {
+  '/': { controller: 'Go', action: 'index' },
+  '/search':  { controller: 'Search', action: 'index' },
+  '/messages': { controller: 'Message', action: 'index' },
+  '/message/(\d+)': { controller: 'Message', action: 'individual', var_names: ['id'] },
+  '/test': { controller: 'Test', action: 'test', noRequest: true }
+};
+
+Mobile.Configs.Router = {
+  append: '.json'
+};

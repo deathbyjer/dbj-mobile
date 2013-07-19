@@ -1,0 +1,21 @@
+//= require_tree ../lib
+//= require_tree ../configs
+//= require_tree ../app
+
+// Setup the Router
+Router.setRoutes(Mobile.Configs.Routes);
+Router.requestImmediately = false;
+
+// Make sure links are kept internally
+Mobile.HistoryListener = function(evt){
+	evt.preventDefault(); // Prevent following the URL
+	History.push(this.get('href')); // Push the new URL into History
+};
+
+// This is the only domready that starts the application
+window.addEvent('domready', function() {
+	Mobile.BaseLayout = new Mobile.Component.generate("FrameworkLayout");
+	Mobile.BaseLayout.preloaded(document.body);
+	
+	document.body.addEvent("click:relay(a:not([href=#],[href^=http://],[data-noxhr]))", Mobile.HistoryListener);
+});
