@@ -26,18 +26,16 @@ There are also special types of components, such as layouts and preloaders (prel
 
 The general javascript structure is as such:
 
-<code>
-- app
---- components
---- controllers
---- layouts
-- configs
-- lib
---- core
---- more
---- prebuilt-components
---- startup.js.erb
-</code>
+    - app
+    --- components
+    --- controllers
+    --- layouts
+    - configs
+    - lib
+    --- core
+    --- more
+    --- prebuilt-components
+    --- startup.js.erb
 
 Everything inside the app folder is meant to be written by the user (think Rails). The configs folder should also be changed by the user, especially routes.js.
 
@@ -58,14 +56,10 @@ It is important that the html contains no data inside of it, since it should onl
 
 To create a component, you simply need to make sure that a javascript file is included containing the following function
 
-<code>
-Mobile.Component.create("YOUR_COMPONENT", {
-  'class': new Class({
-    Extends: Mobile.Component
-	...
-
-  }),
-  
-  url: "/path/to/file.html"
-});
-</code>
+    Mobile.Component.create("YOUR_COMPONENT", {
+        'class': new Class({
+            Extends: Mobile.Component,
+            ...
+        }),
+        url: "/path/to/file.html"
+    });
