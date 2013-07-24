@@ -111,3 +111,45 @@ This method is should be used for any functionality that requires the item to be
 	        And the width of this element is: <span class="my-width"></span>px
 	    </div>
 	</div>
+
+### Layouts
+
+Layouts are special components that are used to display components inside of them. Furthermore, you can swap components around inside of layouts using transitions. And on top of that, layouts can preload data through the use of loaders.
+
+At their very base, however, they need not be anything more than a component with a special DOM element included in their HTML structure.
+
+#### Example HTML
+
+    <div class="basic-layout">
+	    <div>This is the header!!</div>
+	    <div class="mobile-frame" data-frame="main">
+	    </div>
+    </div>
+
+You'll note above the class *mobile-frame* and the data element inside of it. Ignoring the data element for now, the only thing that is needed for a layout to have that a component doesn't need is this class. It describes where to load the components inside the layout.
+
+#### Creating a Layout
+
+Similar to how components are created, we have the function Mobile.Layout.create that will let us create a named layout. 
+
+** It is important to note that Components and Layouts use the same namespace, so do not make a Component called Text and then a Layout called text. One will certainly override the other **
+
+##### Structure
+Layout structure is the same as Component structure, but several more attribues can be added:
+
+- needed_components
+- child_layouts
+- loaders
+- transition
+
+###### needed_components
+This is an array of names. All the components that the layout is sure to need in its rendering should be preloaded with the layout, and therefore included here.
+
+###### child_layouts
+What's cool about layouts is that it can actually have layouts inside of layouts. Any layouts that are needed can be included through here.
+
+###### loaders
+The loaders that were mentioned before. Every loader should be a class that implements Events and has a load() method that starts the loading process, a loaded event that gets fire upon completion and a loaded attribute that is nonexistant or false when the loader is loading and true when the loader is done or has nothing to load.
+
+###### transition
+The name of the default transition used to swap between the interior components.
