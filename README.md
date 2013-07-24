@@ -61,5 +61,24 @@ To create a component, you simply need to make sure that a javascript file is in
             Extends: Mobile.Component,
             ...
         }),
-        url: "/path/to/file.html"
+        url: "/path/to/file.html",
+		name: "YOUR_COMPONENT"
     });
+
+It is important to note the repetition of the name. Eventually, this syntax will change but it's on a TODO and the name is currently required to be repeated.
+
+#### The Component Class
+
+When implementing your custom component class, there are certain methods that you are invited (and encouraged) to overload in order to make it work in the manner you wish.
+
+##### build()
+This method is called after the component generates DOM from the html string provided (or loaded from the url). It is recommended that you use the **this.container** object, which is the main object containing your html, as the parent in order to populate the component with whatever data is loaded. 
+
+It is also recommended that you add any on-load javascripting (for example, attaching events to parts of the dom) at this stage of the build.
+
+*By default, data will be loaded into this.data, but you can create whatever methods to custom load data as you see fit.*
+
+##### render()
+This method is should be used for any functionality that requires the item to be rendered (albeit transparently) on the page. This should be used primarily if there are javascript functions that need height/width data on the rendered object.
+
+#### Example Component 
