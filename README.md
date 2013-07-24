@@ -59,10 +59,10 @@ To create a component, you simply need to make sure that a javascript file is in
     Mobile.Component.create("YOUR_COMPONENT", {
         'class': new Class({
             Extends: Mobile.Component,
+		    name: "YOUR_COMPONENT"
             ...
         }),
         url: "/path/to/file.html",
-		name: "YOUR_COMPONENT"
     });
 
 It is important to note the repetition of the name. Eventually, this syntax will change but it's on a TODO and the name is currently required to be repeated.
@@ -82,3 +82,32 @@ It is also recommended that you add any on-load javascripting (for example, atta
 This method is should be used for any functionality that requires the item to be rendered (albeit transparently) on the page. This should be used primarily if there are javascript functions that need height/width data on the rendered object.
 
 #### Example Component 
+
+##### Code
+
+    Mobile.Component.create("Text", {
+	    url: "/path/to/file.html",
+		'class': new Class({
+		    Extends: Mobile.Component,
+            name: "Text",
+		    
+			build: function() {
+                this.container.getElement('.my-text').set('html', this.data.myText);			
+                this.container.getElement('.my-text2').set('html', this.data.myTextTwo);			
+			},
+			
+			render: function() {
+			    this.container.getElement('.my-width').set('html', this.container.getSize().x)
+			}
+		})
+	});
+	
+##### HTML
+
+    <div class="text-component">
+	    <div class="my-text"></div>
+	    <div>SOME MORE TEXT: <span class="my-text2"></span></div>
+	    <div>
+	        And the width of this element is: <span class="my-width"></span>px
+	    </div>
+	</div>
