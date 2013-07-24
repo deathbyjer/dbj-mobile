@@ -25,17 +25,20 @@ There are also special types of components, such as layouts and preloaders (prel
 ## General Structure
 
 The general javascript structure is as such:
- - app
- --- components
- --- controllers
- --- layouts
- - configs
- - lib
- --- core
- --- more
- --- prebuilt-components
- --- startup.js.erb
- 
+
+<code>
+- app
+--- components
+--- controllers
+--- layouts
+- configs
+- lib
+--- core
+--- more
+--- prebuilt-components
+--- startup.js.erb
+</code>
+
 Everything inside the app folder is meant to be written by the user (think Rails). The configs folder should also be changed by the user, especially routes.js.
 
 ## Components
@@ -49,7 +52,7 @@ A component definition is made up of:
 - a class that extends Mobile.Component
 - a url to html or an html string
 
-* It is important that the html contains no data inside of it, since it should only describe the structure of the data, not the data itself.
+It is important that the html contains no data inside of it, since it should only describe the structure of the data, not the data itself.
 
 # Creating a Component
 
