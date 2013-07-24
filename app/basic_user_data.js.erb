@@ -1,0 +1,64 @@
+if (!window.Mobile) Mobile = {};
+
+Mobile.BasicUserData = new new Class({
+  initialize: function() {
+    this.clearAll();
+  },
+
+  // The Current User Loader
+  
+  userLoader: new Class({
+    load: function() {
+      Mobile.BasicUserData.addEvent('user_loaded', this.loaded.bind(this));
+      Mobile.BasicUserData.loadUser();
+    },
+    
+    loaded: function() {
+      this.fireEvetn('loaded');
+    }
+  }),
+  
+  loadUser: function() {
+    var req = new Request.JSON();
+    req.addEvent('success', this.userLoaded.bind(this));
+  },
+
+  userLoaded: function(data) {
+
+    this.fireEvent('user_loaded');
+    this.user_loaded = true;
+  },
+
+  // The current Feed
+  loadFeed: function() {
+    var req = new Request.JSON();
+    req.addEvent('success', this.feedLoaded.bind(this));
+  },
+
+  feedLoaded: function(data) {
+
+    this.feed_loaded = true;
+  },
+
+  loadChats: function() {
+    var req = new Request.JSON();
+    req.addEvent('success', this.chatsLoaded.bind(this));
+  },
+
+  chatsLoaded: function(data) { 
+
+    this.chats_loaded = true;
+  },
+
+  clearAll: function() {
+    this.user = false;
+    this.new_message = 0;
+    this.new_views = 0;
+    this.new_faves = 0;
+    this.chats = [];
+
+    this.user_loaded = false;
+    this.feed_loaded = false;
+    this.chats_loaded = false;
+  }
+})();

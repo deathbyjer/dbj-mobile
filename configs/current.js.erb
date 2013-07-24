@@ -4,9 +4,10 @@ Mobile.Current = {};
 
 
 Mobile.Current.setMainLayout = function(layout) {
-	if (Mobile.Current.mainLayout && Mobile.Current.mainLayout.name == layout) return;
+	var options = typeof(arguments[1]) == 'object' ? arguments[1] : {}
 	
+	if (Mobile.Current.mainLayout && Mobile.Current.mainLayout.name == layout) return;
 	Mobile.Current.mainLayout = Mobile.Component.generate(layout);
 	if (layout)
-	  Mobile.BaseLayout.replaceComponent(Mobile.Current.mainLayout);
+	  Mobile.BaseLayout.replaceComponent(Mobile.Current.mainLayout, options);
 };

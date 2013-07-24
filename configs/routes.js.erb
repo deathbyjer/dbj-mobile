@@ -2,11 +2,11 @@ if (!window.Mobile) Mobile = {}
 if (!Mobile.Configs) Mobile.Configs = {}
 
 Mobile.Configs.Routes = {
-  '/': { controller: 'Go', action: 'index' },
+  '/go': { controller: 'Test', component: 'Text'  },
   '/search':  { controller: 'Search', action: 'index' },
   '/messages': { controller: 'Message', action: 'index' },
   '/message/(\d+)': { controller: 'Message', action: 'individual', var_names: ['id'] },
-  '/test': { controller: 'Test', action: 'test', noRequest: true }
+  '/test': { controller: 'Test', noRequest: true, component: 'Text' }
 };
 
 Mobile.Configs.Router = {

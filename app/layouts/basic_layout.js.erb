@@ -1,0 +1,20 @@
+Mobile.Layout.create("BasicLayout", {
+  needed_components: ["Text"],
+  child_layouts: ["BasicLayoutSub"],
+  url: '/mobile/templates/basic_layout.html',
+  'class': new Class({
+	  Extends: Mobile.Layout,
+	  name: "BasicLayout", 
+     // default_transition: Mobile.Transitions.Plain,
+	  
+	  build: function() {
+	  },
+	  render: function() {
+	  }
+	})
+});
+
+Mobile.Layout.create("BasicLayoutSub", {
+  html: "BLANK",
+  'class': Mobile.Layout
+});

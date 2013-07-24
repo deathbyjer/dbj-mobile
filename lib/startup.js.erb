@@ -9,7 +9,7 @@ Router.requestImmediately = false;
 // Make sure links are kept internally
 Mobile.HistoryListener = function(evt){
 	evt.preventDefault(); // Prevent following the URL
-	History.push(this.get('href')); // Push the new URL into History
+	History.pushUrl(this.get('href'), true); // Push the new URL into History
 };
 
 // This is the only domready that starts the application
