@@ -153,3 +153,32 @@ The loaders that were mentioned before. Every loader should be a class that impl
 
 ###### transition
 The name of the default transition used to swap between the interior components.
+
+#### Example Layout
+
+##### Code
+
+    Mobile.Layout.create("BasicLayout", {
+        needed_components: ["Text"],
+        child_layouts: ["AnotherLayout"],
+        url: '/mobile/templates/basic_layout.html',
+        'class': new Class({
+	        Extends: Mobile.Layout,
+	        name: "BasicLayout", 
+      
+	        build: function() {
+	        },
+	        render: function() {
+	        }
+	    })
+    });
+	
+##### HTML
+* Note it is the same as above *
+
+    <div class="basic-layout">
+	    <div>This is the header!!</div>
+	    <div class="mobile-frame" data-frame="main">
+	    </div>
+    </div>
+
