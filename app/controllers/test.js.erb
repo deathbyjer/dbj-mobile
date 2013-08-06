@@ -1,4 +1,6 @@
 Mobile.Controllers["Test"] = {
   layout: "BasicLayout",
-  needed_components: ["Text"]
+  needed_components: ["Text"],
 };
+
+Mobile.Controller.beforeFilter({ controllers: 'Test', actions: 'weee'}, function() { History.replace('/go'); return false; });
