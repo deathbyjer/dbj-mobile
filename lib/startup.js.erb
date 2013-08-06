@@ -2,18 +2,19 @@
 //= require_tree ../configs
 //= require_tree ../app
 
-// Setup the Router
-Router.setRoutes(Mobile.Configs.Routes);
-Router.requestImmediately = false;
-
 // Make sure links are kept internally
 Mobile.HistoryListener = function(evt){
 	evt.preventDefault(); // Prevent following the URL
 	History.pushUrl(this.get('href'), true); // Push the new URL into History
 };
 
+Router.requestImmediately = false;
+
 // This is the only domready that starts the application
 window.addEvent('domready', function() {
+  // Setup the Router
+  Router.setRoutes(Mobile.Configs.Routes);
+
 	Mobile.BaseLayout = new Mobile.Component.generate("FrameworkLayout");
 	Mobile.BaseLayout.preloaded(document.body);
 	
