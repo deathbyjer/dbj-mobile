@@ -10,6 +10,8 @@ Mobile.Layout.create("BasicLayout", {
 	  build: function() {
 	  },
 	  render: function() {
+	    this.container.setStyle('width', this.componentParent.container.getSize().x); 
+      
 	  }
 	})
 });
