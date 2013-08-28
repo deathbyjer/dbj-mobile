@@ -1,6 +1,4 @@
 Mobile.Layout.create("BasicLayout", {
-  needed_components: ["Text"],
-  child_layouts: ["BasicLayoutSub"],
   url: '/mobile/templates/basic_layout.html',
   'class': new Class({
 	  Extends: Mobile.Layout,
@@ -11,12 +9,6 @@ Mobile.Layout.create("BasicLayout", {
 	  },
 	  render: function() {
 	    this.container.setStyle('width', this.componentParent.container.getSize().x); 
-      
 	  }
 	})
-});
-
-Mobile.Layout.create("BasicLayoutSub", {
-  html: "BLANK",
-  'class': Mobile.Layout
 });
