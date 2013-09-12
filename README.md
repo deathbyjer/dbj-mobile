@@ -39,6 +39,9 @@ The general javascript structure is as such:
 
 Everything inside the app folder is meant to be written by the user (think Rails). The configs folder should also be changed by the user, especially routes.js.
 
+Templating
+----------
+
 ### Components
 
 As stated before, components have an associated HTML structure (can either be a string or a file on the server) and a class describing their use. This class will contain methods to interact with the components in different ways. 
@@ -111,6 +114,9 @@ This method is should be used for any functionality that requires the item to be
 	        And the width of this element is: <span class="my-width"></span>px
 	    </div>
 	</div>
+  
+### Special Components
+There are many types of special components and prebuilt components that have been included in the library. 
 
 ### Layouts
 
@@ -182,3 +188,24 @@ The name of the default transition used to swap between the interior components.
 	    </div>
     </div>
 
+
+### Overlays
+Overlays are a fancy term for popups. Any component that extends the Mobile.Overlay class instead of the Mobile.Component class will become an overlay. They have all the same functions as a component (build, render, destroy ...) but they also have a couple of other methods and functionalities specific to them.
+
+#### Methods
+
+##### show
+After you've instantiated an Overlay, you can use the show method on the overlay to make it pop-up in the main view. This will place a screen over the current layouts and place your popup, centered, over this screen. It is important that you make sure your popup will be able to scroll its own content, since the popup will be *position: fixed* over the screen, and hence will not scroll down if the main scroll bars are used.
+
+##### destroy
+This can be used instead of close() to close the popup. Right now, there is no close() method. 
+
+##### isOpen
+This method will tell you if the current component is opened.
+
+#### Properties
+
+##### lock_screen
+When set to true, this will require that you explicitly destroy the popup. If this is set to false (default) then a click on the background screen will also close the popup.
+
+#####
