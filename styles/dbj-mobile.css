@@ -1,0 +1,63 @@
+.mobile-frame {
+position: relative;
+}
+
+.mobile-container {
+}
+
+.scrollable-view img{
+-webkit-transform: translate3d(0,0,0);
+transform: translate3d(0,0,0);
+position: relative;
+}
+
+.horizontal-scroller {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.horizontal-scroller > div,
+.horizontal-scroller > div > div {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+
+.overlay-container, .overlay-screen, .overlay-frame {
+  position: fixed;
+  left: 0;
+  width: 100%;
+}
+
+.overlay-container, .overlay-screen {
+  height: 100%;
+  top: 0;
+}
+
+.overlay-container {
+  z-index: 9998;
+}
+
+.overlay-screen {
+  z-index: 9999;
+}
+
+.overlay-frame {
+  top: 10%;
+  height: 80%;
+  z-index: 99999;
+}
+.overlay-frame .mobile-frame-area {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+} 
+
+.popup-component {
+  display: inline-block;
+}
+
+.dark-screen {
+  background: #000;
+  opacity: 0.5;
+}
